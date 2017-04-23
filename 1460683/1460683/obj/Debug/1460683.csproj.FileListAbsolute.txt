@@ -80,3 +80,7 @@ D:\LTW2\New folder\1460683\1460683\bin\Microsoft.Owin.Security.MicrosoftAccount.
 D:\LTW2\New folder\1460683\1460683\obj\Debug\1460683.csprojResolveAssemblyReference.cache
 D:\LTW2\New folder\1460683\1460683\obj\Debug\1460683.dll
 D:\LTW2\New folder\1460683\1460683\obj\Debug\1460683.pdb
+D:\LTW2\New folder\1460683\1460683\bin\PagedList.dll
+D:\LTW2\New folder\1460683\1460683\bin\PagedList.Mvc.dll
+D:\LTW2\New folder\1460683\1460683\bin\PagedList.xml
+D:\LTW2\New folder\1460683\1460683\bin\PagedList.Mvc.xml
