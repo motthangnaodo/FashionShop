@@ -18,5 +18,15 @@ namespace _1460683.Models.BUS
             var db = new FashionShopConnectionDB();
             return db.SingleOrDefault<SanPham>("Select * from SanPham where MaSanPham=@0",a);
         }
+        public static IEnumerable<SanPham> Top6New()
+        {
+            var db = new FashionShopConnectionDB();
+            return db.Query<SanPham>("Select * from SanPham ORDER BY Ngay desc OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY");
+        }
+        public static IEnumerable<SanPham> Top3Hot()
+        {
+            var db = new FashionShopConnectionDB();
+            return db.Query<SanPham>("Select * from SanPham ORDER BY SoLuongXem desc OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY");
+        }
     }
 }
