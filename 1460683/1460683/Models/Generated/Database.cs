@@ -159,6 +159,12 @@ namespace FashionShopConnection
 
 
 
+
+
+		[Column] public int? TinhTrang { get; set; }
+
+
+
 	}
 
     
@@ -182,6 +188,12 @@ namespace FashionShopConnection
 
 
 		[Column] public string TenNSX { get; set; }
+
+
+
+
+
+		[Column] public int? TinhTrang { get; set; }
 
 
 
@@ -305,11 +317,9 @@ namespace FashionShopConnection
 
 		[Column] public int? TinhTrang { get; set; }
 
-        internal object ToPageList()
-        {
-            throw new NotImplementedException();
-        }
-    }
+
+
+	}
 
 
 }

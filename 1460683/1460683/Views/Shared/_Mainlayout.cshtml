@@ -69,24 +69,11 @@
         </div>
     </nav>
     <!--Header-->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div id="logo"><img src="~/Asset/images/logo.png" /></div>
-                </div>
-                <div class="col-md-6 text-right">
-                    <div class="phone"><span class="glyphicon glyphicon-earphone"></span>0123-456-789</div>
-                    <div class="mail"><span class="glyphicon glyphicon-envelope"></span>infor@yoursite.com</div>
-                    <form class="form-search">
-                        <input type="text" class="input-medium search-query">
-                        <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
-                    </form>
-                </div>
-                <div id="cart"><a class="btn btn-cart" href="cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>CART<strong>0</strong></a></div>
-            </div>
-        </div>
-    </header>
+    @{ 
+        var HeaderPartital = Html.Partial("_Header");
+        HeaderPartital = new MvcHtmlString(HeaderPartital.ToString());
+    }
+    @HeaderPartital
     <!--Navigation-->
     <nav id="menu" class="navbar">
         <div class="container">
@@ -98,60 +85,11 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li class="dropdown">
-                        @Html.ActionLink("Products","Index","Shop")
-                        <div class="dropdown-menu">
-                            <div class="dropdown-inner">
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">Text 101</a></li>
-                                    <li><a href="category.html">Text 102</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        @Html.ActionLink("Products", "Index", "Shop")
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men Fashion</a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-inner">
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">Text 201</a></li>
-                                    <li><a href="category.html">Text 202</a></li>
-                                    <li><a href="category.html">Text 203</a></li>
-                                    <li><a href="category.html">Text 204</a></li>
-                                    <li><a href="category.html">Text 205</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kids Fashion</a>
-                        <div class="dropdown-menu" style="margin-left: -203.625px;">
-                            <div class="dropdown-inner">
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">Text 301</a></li>
-                                    <li><a href="category.html">Text 302</a></li>
-                                    <li><a href="category.html">Text 303</a></li>
-                                    <li><a href="category.html">Text 304</a></li>
-                                    <li><a href="category.html">Text 305</a></li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">Text 306</a></li>
-                                    <li><a href="category.html">Text 307</a></li>
-                                    <li><a href="category.html">Text 308</a></li>
-                                    <li><a href="category.html">Text 309</a></li>
-                                    <li><a href="category.html">Text 310</a></li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">Text 311</a></li>
-                                    <li><a href="category.html">Text 312</a></li>
-                                    <li><a href="category.html#">Text 313</a></li>
-                                    <li><a href="category.html#">Text 314</a></li>
-                                    <li><a href="category.html">Text 315</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="category.html">New Fashion</a></li>
-                    <li><a href="category.html">Hot Fashion</a></li>
+                    
+                    @Html.Partial("_LoaiSanPham", _1460683.Models.BUS.LoaiSanPhamBUS.DanhSach())
+                    @Html.Partial("_NhaSanXuat", _1460683.Models.BUS.NhaSanXuatBUS.DanhSach())
                 </ul>
             </div>
         </div>
@@ -161,101 +99,7 @@
     <!--///////////////////HomePage///////////////////////-->
     <!--//////////////////////////////////////////////////-->
     @RenderBody()
-    <footer>
-        <div class="brand">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-xs-6">
-                        <a href="#"><img src="~/Asset/images/brand1-250x100.jpg" /></a>
-                    </div>
-                    <div class="col-lg-3 col-xs-6">
-                        <a href="#"><img src="~/Asset/images/brand2-250x100.jpg" /></a>
-                    </div>
-                    <div class="col-lg-3 col-xs-6">
-                        <a href="#"><img src="~/Asset/images/brand1-250x100.jpg" /></a>
-                    </div>
-                    <div class="col-lg-3 col-xs-6">
-                        <a href="#"><img src="~/Asset/images/brand4-250x100.jpg" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-right">
-                        <h4>Subcribe Email</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <form name="subcribe-email" action="subcribe.php">
-                            <div class="subcribe-form form-group">
-                                <input class="form-inline" type="text" name="email" value="1"><button href="#" class="btn btn-4" type="submit">Subcribe</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="wrap-footer">
-                <div class="row">
-                    <div class="col-md-3 col-footer footer-1">
-                        <img src="~/Asset/images/logofooter.png" />
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="col-md-3 col-footer footer-2">
-                        <div class="heading"><h4>Customer Services</h4></div>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Delivery Information</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-footer footer-3">
-                        <div class="heading"><h4>My Account</h4></div>
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Brands</a></li>
-                            <li><a href="#">Gift Vouchers</a></li>
-                            <li><a href="#">Specials</a></li>
-                            <li><a href="#">Site Map</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-footer footer-4">
-                        <div class="heading"><h4>Contact Us</h4></div>
-                        <ul>
-                            <li><span class="glyphicon glyphicon-home"></span>California, United States 3000009</li>
-                            <li><span class="glyphicon glyphicon-earphone"></span>+91 8866888111</li>
-                            <li><span class="glyphicon glyphicon-envelope"></span>infor@yoursite.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        Your Store © 20xx - <a href="http://www.365bootstrap.com" rel="nofollow" target="_blank">Ecommerce Themes</a> Designed by <a href="http://www.365bootstrap.com" rel="nofollow" target="_blank">365BOOTSTRAP</a>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="pull-right">
-                            <ul>
-                                <li><img src="~/Asset/images/visa-curved-32px.png" /></li>
-                                <li><img src="~/Asset/images/paypal-curved-32px.png" /></li>
-                                <li><img src="~/Asset/images/discover-curved-32px.png" /></li>
-                                <li><img src="~/Asset/images/maestro-curved-32px.png" /></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @{ Html.RenderPartial("_Footer");}
     <!-- JS -->
     <script>
 	$(document).ready(function(){
