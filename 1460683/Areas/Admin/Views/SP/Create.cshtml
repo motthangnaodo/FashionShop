@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+<script src="~/Areas/AdminAsset/js/Product/previewFile.js"></script>
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        background-color: #000;
+    }
+</style>
+
+
+<h3> Tạo Sản Phẩm </h3>
+
+
+    @using (Html.BeginForm("Create", "SP", FormMethod.Post))
+    {
+        <tr>
+        <td for="fname">Mã Sản Phẩm</td>
+            <input type="text" id="fname" name="MaSanPham" placeholder="Nhập Mã Sản Phẩm.." required>
+        </tr>
+        <tr>
+            <td for="lname">Mã Loại Sản Phẩm</td>
+                        <input type="text" id="kname" name="MaLoaiSanPham" placeholder="Nhập Mã Loại Sản Phẩm.." required>
+        </tr>   
+
+        <tr>
+            <td for="lname">Mã Nhà Sản Xuất</td>
+            <input type="text" id="kname2" name="MaLoaiSanPham" placeholder="Nhập Nhà Sản Xuất.." required>
+        </tr>
+        <tr>
+                    <td for="lname">Tên Sản Phẩm</td>
+                    <input type="text" id="ename" name="TenSanPham" placeholder="Nhập Tên Sản Phẩm.." required>
+        </tr>
+        <tr>
+            <td for="lname">Hình Ảnh Chính</td>
+            <td> <input type="file" id="mname" name="HinhChinh" onchange="previewFile();"></td>
+        </tr>
+        <td for="lname">Hình Ảnh 1</td>
+                    <input type="file" id="mname1" name="Hinh1">
+        <td for="lname">Hình Ảnh 2</td>
+                    <input type="file" id="mname2" name="Hinh2">
+        <td for="lname">Hình Ảnh 3</td>
+                    <input type="file" id="mname3" name="Hinh3">
+        <td for="lname">Hình Ảnh 4</td>
+                    <input type="file" id="mname4" name="Hinh4">
+
+            <td for="lname">Giá</td>
+                    <input type="number" id="nname" name="Gia" placeholder="Nhập Giá.." required>
+
+           <td for="country">Tình Trạng</td>
+                        <select id="country" name="TinhTrang">
+                            <option value="1">1 (Đang Bán)</option>
+                            <option value="0">0 (Chưa Có)</option>
+                        </select>
+
+                        <input type="submit" value="Submit">
+    }
+
+
+
+
+
+

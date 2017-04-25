@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FashionShopConnection.NhaSanXuat>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #5d5e63;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+    <h2>Quản Lý Nhà Sản Xuất </h2>
+
+    <table>
+        <tr>
+            <th>Mã Nhà Sản Xuất</th>
+            <th>Tên Nhà Sản Xuất</th>
+            <th>Status</th>
+            <th colspan="2">
+                <a href="@Url.Action("Create","NSX")"><img src="~/Asset/images/addnsx.png" style="margin-left:auto"/></a>
+            </th>
+        </tr>
+        @foreach(var item in Model) { 
+        <tr>
+            <td>@item.MaNSX</td>
+            <td>@item.TenNSX</td>
+            <td>@item.TinhTrang</td>
+            <td><a href="@Url.Action("Edit","NSX",new { id=@item.MaNSX})"><img src="~/Asset/images/editnsx.png" /></a></td>
+            <td><a href="@Url.Action("XoaTamThoi","NSX", new { id = @item.MaNSX })" ><img src="~/Asset/images/deletensx.png" /></a></td>
+        </tr>
+        }
+
+    </table>
+
+
