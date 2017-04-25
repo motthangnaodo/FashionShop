@@ -18,5 +18,10 @@ namespace _1460683.Models.BUS
             var db = new FashionShopConnectionDB();
             return db.Query<SanPham>("Select * from SanPham where MaNSX = '"+id+"'");
         }
+        public static void ThemNSX(NhaSanXuat a)
+        {
+            var db =new FashionShopConnectionDB();
+            db.Insert(a);
+        }
     }
 }
