@@ -41,8 +41,8 @@
             <td>@item.MaNSX</td>
             <td>@item.TenNSX</td>
             <td>@item.TinhTrang</td>
-            <td><img src="~/Asset/images/editnsx.png" /></td>
-            <td><img src="~/Asset/images/deletensx.png" /></td>
+            <td><a href="@Url.Action("Edit","NSX",new { id=@item.MaNSX})"><img src="~/Asset/images/editnsx.png" /></a></td>
+            <td><a href="@Url.Action("XoaTamThoi","NSX", new { id = @item.MaNSX })" ><img src="~/Asset/images/deletensx.png" /></a></td>
         </tr>
         }
 

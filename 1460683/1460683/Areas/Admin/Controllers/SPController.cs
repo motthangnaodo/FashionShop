@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _1460683.Models.BUS;
+using FashionShopConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,12 @@ namespace _1460683.Areas.Admin.Controllers
 {
     public class SPController : Controller
     {
+        [Authorize(Roles = "Admin")]
         // GET: Admin/SanPham
         public ActionResult Index()
         {
-            return View();
+            
+            return View(ShopBUS.DanhSachAdmin());
         }
 
         // GET: Admin/SanPham/Details/5
@@ -23,17 +27,27 @@ namespace _1460683.Areas.Admin.Controllers
         // GET: Admin/SanPham/Create
         public ActionResult Create()
         {
+            ViewBag.MaNSX = new SelectList(NhaSanXuatBUS.DanhSach(), "MaNSX", "TenNSX");
             return View();
         }
 
         // POST: Admin/SanPham/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SanPham sp)
         {
             try
             {
                 // TODO: Add insert logic here
+                var hpf = HttpContext.Request.Files[0];
+                if(hpf.ContentLength>0)
+                {
+                    string filename = sp.HinhChinh;
+                    string fullPathWithFileName = "~/Asset/img/" + filename + ".jpg";
+                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                    sp.HinhChinh = sp.TenSanPham + ".jpg";
+                }
 
+                ShopBUS.CreateSP(sp);
                 return RedirectToAction("Index");
             }
             catch

@@ -16,5 +16,6 @@ namespace _1460683.Controllers
             var ds = NhaSanXuatBUS.ChiTiet(id).ToPagedList(page, pagesize);
             return View(ds);
         }
+       
     }
 }

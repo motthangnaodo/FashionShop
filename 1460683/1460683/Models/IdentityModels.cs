@@ -21,7 +21,7 @@ namespace _1460683.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("FashionShopConnection", throwIfV1Schema: false)
         {
         }
 

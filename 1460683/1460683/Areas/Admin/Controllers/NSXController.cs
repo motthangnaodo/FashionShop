@@ -10,10 +10,11 @@ namespace _1460683.Areas.Admin.Controllers
 {
     public class NSXController : Controller
     {
+        [Authorize(Roles = "Admin")]
         // GET: Admin/NSX
         public ActionResult Index()
         {
-            var ds = NhaSanXuatBUS.DanhSach();
+            var ds = NhaSanXuatBUS.DanhSachAdmin();
             return View(ds);
         }
 
@@ -46,31 +47,37 @@ namespace _1460683.Areas.Admin.Controllers
         }
 
         // GET: Admin/NSX/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit( string id)
         {
-            return View();
+            var db = NhaSanXuatBUS.ChiTietAdmin(id);
+            return View(db);
         }
 
         // POST: Admin/NSX/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, NhaSanXuat nsx)
         {
-            try
-            {
+            //try
+            //{
                 // TODO: Add update logic here
-
+                NhaSanXuatBUS.UpdateNSX(id, nsx);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: Admin/NSX/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
+        }
+
+        public ActionResult XoaTamThoi(String id)
+        {
+            return View(NhaSanXuatBUS.ChiTietAdmin(id));
         }
 
         // POST: Admin/NSX/Delete/5
@@ -87,6 +94,16 @@ namespace _1460683.Areas.Admin.Controllers
             {
                 return View();
             }
+
+        }
+
+        [HttpPost]
+        public ActionResult XoaTamThoi(String id, NhaSanXuat nsx)
+        {
+                // TODO: Add delete logic here
+                NhaSanXuatBUS.XoaTTNSX(id, nsx);
+                return RedirectToAction("Index");
+
         }
     }
 }

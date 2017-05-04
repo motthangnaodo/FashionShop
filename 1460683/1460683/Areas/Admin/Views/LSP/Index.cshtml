@@ -1,8 +1,50 @@
-﻿
+﻿@model IEnumerable<FashionShopConnection.LoaiSanPham>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
 
-<h2>Index cua lsp</h2>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #5d5e63;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+<h2>Quản Lý Loại Sản Phẩm  </h2>
+
+<table>
+    <tr>
+        <th>Mã Loại Sản Phẩm</th>
+        <th>Tên Loại Sản Phẩm</th>
+        <th>Status</th>
+        <th colspan="2">
+            <a href="@Url.Action("Create","LSP")"><img src="~/Asset/images/addnsx.png" style="margin-left:auto" /></a>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaLSP</td>
+            <td>@item.TenLSP</td>
+            <td>@item.TinhTrang</td>
+            <td><a href="@Url.Action("Edit","LSP",new { id=@item.MaLSP})"><img src="~/Asset/images/editnsx.png" /></a></td>
+            <td><a href="@Url.Action("XoaTamThoi","LSP", new { id = @item.MaLSP })"><img src="~/Asset/images/deletensx.png" /></a></td>
+        </tr>
+    }
+
+</table>

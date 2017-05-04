@@ -28,5 +28,16 @@ namespace _1460683.Models.BUS
             var db = new FashionShopConnectionDB();
             return db.Query<SanPham>("Select * from SanPham ORDER BY SoLuongXem desc OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY");
         }
+        ///// ADMIN
+        public static IEnumerable<SanPham> DanhSachAdmin()
+        {
+            var db = new FashionShopConnectionDB();
+            return db.Query<SanPham>("Select * from SanPham");
+        }
+        public static void CreateSP(SanPham sp)
+        {
+            var db = new FashionShopConnectionDB();
+            db.Insert(sp);
+        }
     }
 }
